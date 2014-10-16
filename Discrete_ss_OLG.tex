@@ -1,0 +1,294 @@
+% Wealth inequality and housing price
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=2cm,top=2cm,bottom=2cm,right=3cm,head=0.5cm,foot=0.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amssymb,amsmath}
+\usepackage{enumerate}
+\usepackage{chngpage}
+
+%\sloppy
+%\definecolor{lightgray}{gray}{0.5}
+%\setlength{\parindent}{0pt}
+%\title{Wealth inequality and housing price}
+%\author{F\'{u}d\`{o}ng Zh\={a}ng}
+
+
+\newif\iffudongxingtongonly
+%\fudongxingtongonlytrue
+\fudongxingtongonlyfalse
+
+
+\begin{document}
+
+
+\begin{center}
+\Large{Wealth inequality and discrete housing choice}\\
+\mskip
+\normalsize Xintong Yang and Fudong Zhang\let\thefootnote\relax\footnotemark*
+\let\thefootnote\relax\footnotetext{*Respectively: University of California, Santa Barbara (e-mail: \href{mailto:xintongyang@umail.ucsb.edu}{\tt xintongyang@umail.ucsb.edu}), University of Michigan (e-mail: \href{mailto:fudongzh@umich.edu}{\tt fudongzh@umich.edu}).}\\
+\mskip
+\normalsize \today\\
+\end{center}
+
+\bigskip
+
+\subsection*{Model}
+
+The economy is a standard overlapping generations model, extended to allow for the existence of housing assets, collateralized borrowing and heterogeneous endowments.
+
+\paragraph{Household preferences and endowments.}
+Households receive utility from consumption $c$ and service flows from housing $s$ rented from the rental market. Note that $s$ does not tie up with the housing asset owned by a household, i.e., we allow for $s\ne h$, where $h$ is the household's housing asset position.
+
+To be specific, we assume the following momentary utility function
+
+\[
+U(c,s) = \frac{(c^\alpha s^{1-\alpha})^{1-\gamma}}{1-\gamma}.
+\]
+In our benchmark model, we start with a log-utility case ($\gamma=1$).
+
+Agent in the economy is born with initial wealth $b_0\in B_0$ and initial housing endowment $h_0 \in H_0$. Each agent lives for $N$ periods with certainty, receives an income stream throughout her lifetime $\{y_n\}_{n=1}^{N}\in Y$.
+%\footnote{We allow growth in the aggregate housing if $h_0>0$}.
+The period by period discount factor is constant at $\beta$ across all the agents.
+
+Finally, the same mass of new agents are born at the begining of each period.
+
+\paragraph{Markets.} There are two asset markets in the economy, a bond market and a housing asset market. At the beginning of each period $t$, agents can trade one-period fully enforceable bond $b_t$ which pays a gross interest rate of $1+r_t$ one period later. Negative amounts of this bond denote a debt position. Households cannot borrow more than a fraction $M_h$ of their housing asset or a fraction $M_y$ of their expected future earnings.households can trade housing $h$ in the asset market, but only at quantity larger or equal to $\underline{h}$ with unit price $P(t)$ (the endowment income in the same period is the numeraire). Each unit of housing asset generates a unit of flow rental service each period. There is no depreciation for housing asset so the total housing stock in the economy is constant at $H_t=\bar{H}$.
+
+If an agent enters her end-life period with $0<h<\underbar{h}$, her housing asset at the end of the period will be randomly assigned to a newly born agent the next period as her endowment.
+
+At the beginning of each period $t$,
+
+At the beginning of each period $t$, right after asset markets closes, households participate in the housing rental market, depending on her housing asset holding position, either buying or selling a certain amount of housing services $s$ for the current period, at market unit price $R(t)$. Note that the trading unit of $s$ is continuous. At the same time, households also decide current period consumption.
+
+\paragraph{The household's problem.}
+%$\underline{a},\underbar{a}$
+It is convenient to write the household's optimization problem recursively. At period $t$, the state variables are $b$ and $h$. The households observe current prices: $r_t, R(t), P(t)$. The dynamic problem of an age $n<N$ household is
+
+%\[
+%V_n(b,h)=\max_{I^{h}\in\{0,1\}} \{I^{h}V_n^{a}(b,h),(1-I^{h})V_n^{wa}(b,h)\},
+%\]
+%where $I^{h}=1$ denotes that the agent makes adjustment on her housing asset and $I^{h}=0$ denotes that without adjustment. $V_n^{a}(b,h)$ and $V_n^{wa}(b,h)$ are corresponding value functions, given by
+
+\[
+V_n(b,h)=\max \{V_n^{a}(b,h),V_n^{wa}(b,h)\},
+\]
+
+where $V_n^{a}(b,h)$ and $V_n^{wa}(b,h)$ are value functions corresponding to the agent makes adjustment on her housing asset and that without adjustment, respectively, given by
+
+\[
+V_n^{d}(b,h) = \max_{\{c, s, b',h'\}}  \frac{(c^\alpha s^{1-\alpha})^{1-\gamma}}{1-\gamma} + \beta V_{n+1}(b',h')
+\]
+
+s.t.
+\begin{align*}
+c+ R(t)s+\frac{b'}{(1+r_{t})}+P(t)(h'-h)&= y_n+b+R(t)h' \\
+%b'&\ge -M_h h'P'I_{h'\ge\underbar{h}} -M_y \sum_{k=n+1}^{N}\frac{y_k}{\Pi_{l=n+1}^{k}(1+r_{t+l-n-1})}\\
+b'&\ge \max\{-M_h h'P'I_{h'\ge\underbar{h}}, -M_y \sum_{k=n+1}^{N}\frac{y_k}{\Pi_{l=n+1}^{k}(1+r_{t+l-n-1})}\}\\
+h'&\in \left\{ \begin{array}{ll}
+\{[0,\max \{h-\underbar{h},0\}],[h+\underbar{h},+\infty)\} & \mbox{if $d=a$}\\
+\{h\}& \mbox{otherwise}
+\end{array}
+\right.
+\end{align*}
+
+for $d\in\{a,aw\}$.
+
+Before laying out the definition of an equilibrium, we first summarize the optimal decisions by the age $n$ agent as the following policy functions,
+\[
+b'_n=p_n^b(b,h),\quad h'_n=p_n^h(b,h)
+\]
+by solving the above defined problem.
+\vspace{2cm}
+
+\paragraph{Equilibrium.}
+The steady state equilibrium in this economy is defined as: a set of individual value and policy functions $\{V_n,b'_n,h'_n\}_{n=1}^{N}$, a set of prices $r_t,R(t),P(t)$, such that
+
+\begin{enumerate}
+  \item $\{V_n,p_n^b,p_n^h\}_{n=1}^{N}$ solve the households' optimization problems.
+  \item $r_t,R(t),P(t)$ are constant.
+  \item All the spot markets clear at all times.
+  \begin{enumerate}[(i)]
+    \item  $\sum_{n=1}^{N} b'_n = 0$
+    \item  $\sum_{n=1}^{N} (h'_n-h_n)= 0$, which comes for free, since we have
+    \[
+    \sum_{n=1}^{N} (h'_n-h_n)= \sum_{n=1}^{N-1} h_{n+1} + h'_N-\sum_{n=2}^{N} h_{n}-h_1 = h_N-h_1=0
+    \]
+    \item  $\sum_{n=1}^{N} s_n = H$
+  \end{enumerate}
+  \item Cross-sectional housing asset holding position generate $H$, i.e., $\sum_{n=1}^{N} h_n= H$.
+\end{enumerate}
+
+
+\iffudongxingtongonly
+NTGB: What is the relationship between $P$ and $R$? Relatedly, how can we guarantee no one will hold a house level $0<h<\underbar{h}$ ever?
+\fi
+
+\pagebreak
+
+
+
+\subsection*{Solution}
+
+Since agents die with certainty at age $N$, we can solve for $(V_N(b,h),b'_N,h'_N)$ first and do backward induction to find all the other value and policy functions $(V_k(b,h),b'_k,h'_k)$, $\forall k<N$.
+
+
+\subsubsection*{Mathematics}
+
+\begin{enumerate}
+  \item First of all, it's easy to solve for $(V_N(b,h),b'_N,h'_N)$. Since agents just need to optimally allocate all of his resources across $c$ and $s$.
+
+  FOCs w.r.t. $c$ and $s$ give us
+\[
+\frac{s}{c}= \frac{1-\alpha}{\alpha R}.
+\]
+Thus we have
+\[
+\frac{1}{\alpha}c= y_N+(1+r)b+Rh+PhI_{h\ge\underbar{h}}.
+\]
+Then we can get
+\[
+V_N(b,h) = \mbox{log}([(1+r_t)b+y_N+(R(t)+I_{h\ge\underbar{h}} P(t))h])+\alpha\mbox{log}(\alpha)+(1-\alpha)\mbox{log}(\frac{(1-\alpha)}{R(t)}),
+\]
+ where $I_{h\ge\underbar{h}}$ is the characterization function.
+  \item Solve for $V_n^{wa}(b,h)$.
+
+\[
+V_n^{wa}(b,h) = \max_{\{c, s, b'\}}  \frac{(c^\alpha s^{1-\alpha})^{1-\gamma}}{1-\gamma} + \beta V_{n+1}(b',h)
+\]
+
+FOC w.r.t. $b'$ gives us
+
+\[
+[\frac{1}{y_n+(1+r)b+(R+P)h-b'} - \beta \frac{\partial V_{n+1}(b',h)}{\partial b'}][b'-\underbar{b}'_n(h)]=0
+\]
+
+
+  \item Solve for $V_n^{a}(b,h)$.
+
+  \[
+V_n^{a}(b,h) = \max_{\{c, s, b',h'\}}  \frac{(c^\alpha s^{1-\alpha})^{1-\gamma}}{1-\gamma} + \beta V_{n+1}(b',h')
+\]
+
+FOCs w.r.t. $b'$ and $h'$ give us
+\[
+[\frac{1}{y_n+(1+r)b+(R+P)h-b'-Ph'} - \beta \frac{\partial V_{n+1}(b',h')}{\partial b'}][b'-\underbar{b}'_n(h')]=0
+\]
+and
+\[
+[\frac{1}{y_n+(1+r)b+(R+P)h-b'-Ph'} - \beta \frac{\partial V_{n+1}(b',h')}{\partial h'}][h'-(h+\underbar{h})][h'-(h-\underbar{h})]=0
+\]
+
+\item Then we do backward induction to get $(V_k(b,h),b'_k,h'_k)$, $\forall k<N$.
+
+Due to the presence of boundary conditions, we cannot find analytical solutions. We will solve the problem numerically.
+
+\end{enumerate}
+
+
+\iffudongxingtongonly
+
+\subsubsection*{Numerical implementation}
+
+\noindent \emph{Step 0:} Start from an initial guess of prices $r$, $R$ and $P$.
+\vspace{2 mm}
+
+\noindent \emph{Step 1:} Find the analytical value function at age $N$.
+\[
+V_N(b,h) = \mbox{log}([(1+r_t)b+y_N+(R(t)+I_{h\ge\underbar{h}} P(t))h])+\alpha\mbox{log}(\alpha)+(1-\alpha)\mbox{log}(\frac{(1-\alpha)}{R(t)}),
+\]
+Select the interpolation grid for $(b,h)$ used in the approximation of both household's continuation value functions and policy functions (we might want to alow for different grids across ages to get more accurate results).
+\vspace{2 mm}
+
+
+\noindent \emph{Step 2:} Set up the interpolated continuation value function at age $N$. Solve for the value function and policy function at age $n\le N$ by backward induction. The following is detailed sub-steps for one step calculation.
+\begin{enumerate}
+% \item Solve for $V_{N-1}^{wa}(b,h)$ and $b^{'wa}_{N-1},h^{'wa}_{N-1}$. For any $(b,h)$ grid point, solve the constrained one dimensional optimization problem defined earlier, where $b'\in[-M_h hPI_{h\ge\underbar{h}}-\frac{M_y y_N}{1+r}, y_{N-1}+(1+r)b+Rh]$. Note that the upper bound of $b'$ comes from the positive consumption requirement.\footnote{For $(b,h)$ grid such that there exists no $b'$ that can generate positive consumption, we set $V_{N-1}^{wa}(b,h)$ to be a negative enough number. In this case, we also assign $b^{'wa}_{N-1}=0$, which does not matter in any case, since rational agents will never reach such a state.}
+
+  \item Solve for $V_{N-1}^{wa}(b,h)$ and $b^{'wa}_{N-1},h^{'wa}_{N-1}$. For any $(b,h)$ grid point, solve the constrained one dimensional optimization problem defined earlier, where $b'\in[\max \{-M_h hPI_{h\ge\underbar{h}}, -\frac{M_y y_N}{1+r}\}, y_{N-1}+(1+r)b+Rh]$. Note that the upper bound of $b'$ comes from the positive consumption requirement.\footnote{For $(b,h)$ grid such that there exists no $b'$ that can generate positive consumption, we set $V_{N-1}^{wa}(b,h)$ to be a negative enough number. In this case, we also assign $b^{'wa}_{N-1}=0$, which does not matter in any case, since rational agents will never reach such a state.}
+
+ % \item Solve for $V_{N-1}^{a}(b,h)$ and $b^{'a}_{N-1},h^{'a}_{N-1}$. For any $(b,h)$ grid point, solve the constrained two dimensional optimization problem defined earlier. We do the optimization in two steps. Firstly, for any given $h'$, we solve the the constrained one dimensional optimization problem defined similarly as sub-step 1. We then search along possible $h'$ to find the optimal $h^{'a}_{N-1}$. Note that $h'\in\{[0,\max \{h-\underbar{h},0\}],[h+\underbar{h},\min \{ \frac{1}{(1-M_h)P} (\frac{M_y y_N}{1+r}+y_{N-1}+(1+r)b+(R+P)h),h_{max}\}]\}$, again from the positive consumption requirement.\footnote{Similarly, for $(b,h)$ grid such that there exists no $h'$ that can generate positive consumption, we set $V_{N-1}^{a}(b,h)$ to be a negative enough number. In this case, we also assign $h^{'a}_{N-1}=0$.}
+  \item Solve for $V_{N-1}^{a}(b,h)$ and $b^{'a}_{N-1},h^{'a}_{N-1}$. For any $(b,h)$ grid point, solve the constrained two dimensional optimization problem defined earlier. We do the optimization in two steps. Firstly, for any given $h'$, we solve the the constrained one dimensional optimization problem defined similarly as sub-step 1. We then search along possible $h'$ to find the optimal $h^{'a}_{N-1}$. Note that $h'\in\{[0,\max \{h-\underbar{h},0\}],[h+\underbar{h},\min \{ \min \{\frac{1}{P} (\frac{M_y y_N}{1+r}+y_{N-1}+(1+r)b+(R+P)h),\frac{1}{(P-M_h} (y_{N-1}+(1+r)b+(R+P)h)\},h_{max}\}]\}$, again from the positive consumption requirement.\footnote{Similarly, for $(b,h)$ grid such that there exists no $h'$ that can generate positive consumption, we set $V_{N-1}^{a}(b,h)$ to be a negative enough number. In this case, we also assign $h^{'a}_{N-1}=0$.}
+
+  \item Get $V_{N-1}(b,h)=\max \{V_{N-1}^{a}(b,h),V_{N-1}^{wa}(b,h)\}$ and corresponding $b'_{N-1},h'_{N-1}$.
+\end{enumerate}
+\vspace{2 mm}
+
+\noindent \emph{Step 3:} Use the initial endowment of the new born agent and those policy functions from step 2 to get optimal decisions of all the agents in the economy. Stop if all markets clear. Otherwise, update prices and go back to step 1.
+
+
+\fi
+
+\pagebreak
+
+\subsection*{Results}
+
+We solve the model with the following parameter values.
+
+\begin{table} [h!]
+
+\caption{Summary of Parameters}
+\footnotesize
+\begin{adjustwidth}{-1cm}{-1cm}%
+\centering
+\begin{tabular}{l l l l}
+\hline
+& Parameter & Value & Target/source\\
+\hline
+Relative risk aversion & $\gamma$ & 1.00 &  Standard value \\
+Utility weight on consumption & $\alpha$ & 0.85 & ratio of the housing stock to output \\
+Utility weight on consumption & $\alpha$ & 0.85 & ratio of the housing services to output, 12\% \\
+Life span & $N$ & 60 &  \\
+Endowment when working &$y_{n\le40}$ &  &   \\
+Endowment after retirement & $y_{n>40}$ &  &  40\% of average working income \\
+Discount rate & $beta$ & 0.95 &   \\
+Max debt, fraction of house &$M_h$ & 0.75 &   \\
+Max debt, fraction future income & $M_y$ &0.25 & \\
+Minimum housing transaction size &    $\underbar{h}$    &  1   & housing value over current income ratio\\
+Housing stock &  $H$   &    & ratio of the housing stock to output\\
+
+\hline
+\end{tabular}
+\end{adjustwidth}
+\label{table_calibration}
+\end{table}
+
+\vspace{1cm}
+We first solve the model with integer restriction on housing consumption. With the above parameter setting, we get the following market clearing prices
+
+\[r = 0.2484, \quad R=0.0428, \quad P=5.0021, \quad \frac{R}{P}=0.0497.\]
+
+\vspace{1cm}
+
+The following graphs depict the cross-sectional distributions of bond holding, housing asset position, as well as the consumption profile.
+
+\vspace{2cm}
+
+\begin{figure}[h!]
+\begin{center}
+		\includegraphics[height=2.5in,width=4in]{iipath.eps}
+		\caption{Income process}
+\end{center}\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+		\includegraphics[height=2.5in,width=4in]{bbpath.eps}
+		\caption{Bond holding}
+\end{center}\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+		\includegraphics[height=2.5in,width=4in]{hhpath.eps}
+		\caption{Housing asset position}
+\end{center}\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}
+		\includegraphics[height=2.5in,width=4in]{ccpath.eps}
+		\caption{Consumption profile}
+\end{center}\end{figure}
+
+
+
+
+\end{document}
