@@ -35,7 +35,7 @@
 
 \subsection*{Model}
 
-The economy is a standard overlapping generations model, extended to allow for the existence of housing assets, collateralized borrowing and heterogeneous endowments.
+The economy is a standard overlapping generations model, extended to include the existence of housing assets, collateralized borrowing and heterogeneous endowments.
 
 \paragraph{Household preferences and endowments.}
 Households receive utility from consumption $c$ and service flows from housing $s$ rented from the rental market. Note that $s$ does not tie up with the housing asset owned by a household, i.e., we allow for $s\ne h$, where $h$ is the household's housing asset position.
@@ -47,19 +47,19 @@ U(c,s) = \frac{(c^\alpha s^{1-\alpha})^{1-\gamma}}{1-\gamma}.
 \]
 In our benchmark model, we start with a log-utility case ($\gamma=1$).
 
-Agent in the economy is born with initial wealth $b_0\in B_0$ and initial housing endowment $h_0 \in H_0$. Each agent lives for $N$ periods with certainty, receives an income stream throughout her lifetime $\{y_n\}_{n=1}^{N}\in Y$.
+The agent in the economy is born with initial wealth $b_0\in B_0$ and initial housing endowment $h_0 \in H_0$. Each agent lives for $N$ periods with certainty, receives an income stream throughout her lifetime $\{y_n\}_{n=1}^{N}\in Y$.
 %\footnote{We allow growth in the aggregate housing if $h_0>0$}.
 The period by period discount factor is constant at $\beta$ across all the agents.
 
-Finally, the same mass of new agents are born at the begining of each period.
+Finally, the same mass of new agents are born at the beginning of each period, with the same distribution of initial characteristics over-time.
 
-\paragraph{Markets.} There are two asset markets in the economy, a bond market and a housing asset market. At the beginning of each period $t$, agents can trade one-period fully enforceable bond $b_t$ which pays a gross interest rate of $1+r_t$ one period later. Negative amounts of this bond denote a debt position. Households cannot borrow more than a fraction $M_h$ of their housing asset or a fraction $M_y$ of their expected future earnings.households can trade housing $h$ in the asset market, but only at quantity larger or equal to $\underline{h}$ with unit price $P(t)$ (the endowment income in the same period is the numeraire). Each unit of housing asset generates a unit of flow rental service each period. There is no depreciation for housing asset so the total housing stock in the economy is constant at $H_t=\bar{H}$.
+\paragraph{Markets and timing.} There are two asset markets in the economy, a bond market and a housing asset market. 
 
-If an agent enters her end-life period with $0<h<\underbar{h}$, her housing asset at the end of the period will be randomly assigned to a newly born agent the next period as her endowment.
+At the beginning of each period $t$, agents can trade one-period fully enforceable bond $b_t$ which pays a gross interest rate of $1+r_t$ one period later. Negative amounts of this bond denote a debt position. Households cannot borrow more than a fraction $M_h$ of their housing asset or a fraction $M_y$ of their expected future earnings.
 
-At the beginning of each period $t$,
+At the same time, households can trade housing $h$ in the asset market, but only at a quantity larger or equal to $\underline{h}$ with unit price $P(t)$ (the endowment income in the same period is the numeraire).\footnote{If an agent enters her end-life period with $0<h<\underbar{h}$, her housing asset at the end of the period will be randomly assigned to a newly born agent the next period as her endowment.} Each unit of housing asset generates a unit of flow housing service each period. There is no depreciation for housing asset and the total housing stock in the economy is fixed at $H_t=\bar{H}$.
 
-At the beginning of each period $t$, right after asset markets closes, households participate in the housing rental market, depending on her housing asset holding position, either buying or selling a certain amount of housing services $s$ for the current period, at market unit price $R(t)$. Note that the trading unit of $s$ is continuous. At the same time, households also decide current period consumption.
+Right after asset markets close, households participate in the goods market and housing rental market to purchase the current period consumptions. The goods market is standard. Note that for simplification, unlike the housing asset market, we allow the trading unit of $s$ to be continuous. Depending on one's housing asset holding position, an agent either buy or sell a certain amount of housing services $s$ for the current period, at market unit price $R(t)$.
 
 \paragraph{The household's problem.}
 %$\underline{a},\underbar{a}$
